@@ -26,7 +26,7 @@ class Player: SCNNode {
     
     private func createContents(){
         
-        geometry = SCNBox(width: 10, height: 10, length: 10, chamferRadius: 15)
+        geometry = SCNBox(width: 5, height: 5, length: 5, chamferRadius: 15)
         
         let meterial = geometry?.firstMaterial
         meterial?.diffuse.contents = UIColor.red

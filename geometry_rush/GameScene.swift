@@ -36,5 +36,25 @@ class GameScene: SCNScene {
         
         let mainLight = MainLight()
         rootNode.addChildNode(mainLight)
+        
+        let enemy = Enemy()
+        rootNode.addChildNode(enemy)
+        
+        //test
+        let playerLeftUp = Player()
+        playerLeftUp.position = SCNVector3(-160, 284, 0)
+        rootNode.addChildNode(playerLeftUp)
+        
+        let playerLeftDown = Player()
+        playerLeftDown.position = SCNVector3(-160, -284, 0)
+        rootNode.addChildNode(playerLeftDown)
+        
+        let playerRightUp = Player()
+        playerRightUp.position = SCNVector3(160, 284, 0)
+        rootNode.addChildNode(playerRightUp)
+        
+        let playerRightDown = Player()
+        playerRightDown.position = SCNVector3(-160, -284, 0)
+        rootNode.addChildNode(playerRightDown)
     }
 }

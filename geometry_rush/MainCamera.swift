@@ -30,5 +30,7 @@ class MainCamera: SCNNode {
         let node = SCNCamera()
         camera = node
         
+        camera?.xFov = 320
+        camera?.yFov = 568
     }
 }

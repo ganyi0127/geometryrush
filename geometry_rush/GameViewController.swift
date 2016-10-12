@@ -19,10 +19,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scnView = view as! SCNView
+        if sceneSize == nil{
+            sceneSize = scnView.bounds.size
+            print(sceneSize)
+        }
         
         gameScene = GameScene()
-        
-        let scnView = view as! SCNView
         scnView.scene = gameScene
         
         scnView.showsStatistics = true
@@ -30,10 +33,6 @@ class GameViewController: UIViewController {
         scnView.backgroundColor = .lightGray
         
         //覆盖层
-        if sceneSize == nil{
-            sceneSize = scnView.bounds.size
-            print(sceneSize)
-        }
         let menuScene = MenuScene(size: sceneSize!)
         scnView.overlaySKScene = menuScene
         
