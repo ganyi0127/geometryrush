@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEE378571DAE10D600CB954B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE378561DAE10D600CB954B /* AppDelegate.swift */; };
+		BEE378591DAE10D600CB954B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE378581DAE10D600CB954B /* art.scnassets */; };
+		BEE3785B1DAE10D600CB954B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3785A1DAE10D600CB954B /* GameViewController.swift */; };
+		BEE3785E1DAE10D600CB954B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE3785C1DAE10D600CB954B /* Main.storyboard */; };
+		BEE378601DAE10D600CB954B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE3785F1DAE10D600CB954B /* Assets.xcassets */; };
+		BEE378631DAE10D600CB954B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE378611DAE10D600CB954B /* LaunchScreen.storyboard */; };
+		BEE3786E1DAE10D600CB954B /* geometry_rushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3786D1DAE10D600CB954B /* geometry_rushTests.swift */; };
+		BEE378791DAE10D600CB954B /* geometry_rushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE378781DAE10D600CB954B /* geometry_rushUITests.swift */; };
+		BEE378881DAE14FF00CB954B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE378871DAE14FF00CB954B /* GameScene.swift */; };
+		BEE3788A1DAE171C00CB954B /* MainCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE378891DAE171C00CB954B /* MainCamera.swift */; };
+		BEE3788C1DAE186800CB954B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3788B1DAE186800CB954B /* Player.swift */; };
+		BEE3788E1DAE19BE00CB954B /* MainLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3788D1DAE19BE00CB954B /* MainLight.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEE3786A1DAE10D600CB954B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEE3784B1DAE10D600CB954B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEE378521DAE10D600CB954B;
+			remoteInfo = geometry_rush;
+		};
+		BEE378751DAE10D600CB954B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEE3784B1DAE10D600CB954B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEE378521DAE10D600CB954B;
+			remoteInfo = geometry_rush;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BEE378531DAE10D600CB954B /* geometry_rush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geometry_rush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE378561DAE10D600CB954B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEE378581DAE10D600CB954B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		BEE3785A1DAE10D600CB954B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		BEE3785D1DAE10D600CB954B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEE3785F1DAE10D600CB954B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEE378621DAE10D600CB954B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEE378641DAE10D600CB954B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE378691DAE10D600CB954B /* geometry_rushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geometry_rushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE3786D1DAE10D600CB954B /* geometry_rushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geometry_rushTests.swift; sourceTree = "<group>"; };
+		BEE3786F1DAE10D600CB954B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE378741DAE10D600CB954B /* geometry_rushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geometry_rushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE378781DAE10D600CB954B /* geometry_rushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geometry_rushUITests.swift; sourceTree = "<group>"; };
+		BEE3787A1DAE10D600CB954B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE378871DAE14FF00CB954B /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		BEE378891DAE171C00CB954B /* MainCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCamera.swift; sourceTree = "<group>"; };
+		BEE3788B1DAE186800CB954B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BEE3788D1DAE19BE00CB954B /* MainLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLight.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEE378501DAE10D600CB954B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE378661DAE10D600CB954B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE378711DAE10D600CB954B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEE3784A1DAE10D600CB954B = {
+			isa = PBXGroup;
+			children = (
+				BEE378551DAE10D600CB954B /* geometry_rush */,
+				BEE3786C1DAE10D600CB954B /* geometry_rushTests */,
+				BEE378771DAE10D600CB954B /* geometry_rushUITests */,
+				BEE378541DAE10D600CB954B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEE378541DAE10D600CB954B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEE378531DAE10D600CB954B /* geometry_rush.app */,
+				BEE378691DAE10D600CB954B /* geometry_rushTests.xctest */,
+				BEE378741DAE10D600CB954B /* geometry_rushUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEE378551DAE10D600CB954B /* geometry_rush */ = {
+			isa = PBXGroup;
+			children = (
+				BEE3785A1DAE10D600CB954B /* GameViewController.swift */,
+				BEE378871DAE14FF00CB954B /* GameScene.swift */,
+				BEE378891DAE171C00CB954B /* MainCamera.swift */,
+				BEE3788D1DAE19BE00CB954B /* MainLight.swift */,
+				BEE3788B1DAE186800CB954B /* Player.swift */,
+				BEE378861DAE10E900CB954B /* supportingFiles */,
+			);
+			path = geometry_rush;
+			sourceTree = "<group>";
+		};
+		BEE3786C1DAE10D600CB954B /* geometry_rushTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEE3786D1DAE10D600CB954B /* geometry_rushTests.swift */,
+				BEE3786F1DAE10D600CB954B /* Info.plist */,
+			);
+			path = geometry_rushTests;
+			sourceTree = "<group>";
+		};
+		BEE378771DAE10D600CB954B /* geometry_rushUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BEE378781DAE10D600CB954B /* geometry_rushUITests.swift */,
+				BEE3787A1DAE10D600CB954B /* Info.plist */,
+			);
+			path = geometry_rushUITests;
+			sourceTree = "<group>";
+		};
+		BEE378861DAE10E900CB954B /* supportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BEE378561DAE10D600CB954B /* AppDelegate.swift */,
+				BEE378581DAE10D600CB954B /* art.scnassets */,
+				BEE3785C1DAE10D600CB954B /* Main.storyboard */,
+				BEE3785F1DAE10D600CB954B /* Assets.xcassets */,
+				BEE378611DAE10D600CB954B /* LaunchScreen.storyboard */,
+				BEE378641DAE10D600CB954B /* Info.plist */,
+			);
+			name = supportingFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEE378521DAE10D600CB954B /* geometry_rush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE3787D1DAE10D600CB954B /* Build configuration list for PBXNativeTarget "geometry_rush" */;
+			buildPhases = (
+				BEE3784F1DAE10D600CB954B /* Sources */,
+				BEE378501DAE10D600CB954B /* Frameworks */,
+				BEE378511DAE10D600CB954B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = geometry_rush;
+			productName = geometry_rush;
+			productReference = BEE378531DAE10D600CB954B /* geometry_rush.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEE378681DAE10D600CB954B /* geometry_rushTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE378801DAE10D600CB954B /* Build configuration list for PBXNativeTarget "geometry_rushTests" */;
+			buildPhases = (
+				BEE378651DAE10D600CB954B /* Sources */,
+				BEE378661DAE10D600CB954B /* Frameworks */,
+				BEE378671DAE10D600CB954B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEE3786B1DAE10D600CB954B /* PBXTargetDependency */,
+			);
+			name = geometry_rushTests;
+			productName = geometry_rushTests;
+			productReference = BEE378691DAE10D600CB954B /* geometry_rushTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BEE378731DAE10D600CB954B /* geometry_rushUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE378831DAE10D600CB954B /* Build configuration list for PBXNativeTarget "geometry_rushUITests" */;
+			buildPhases = (
+				BEE378701DAE10D600CB954B /* Sources */,
+				BEE378711DAE10D600CB954B /* Frameworks */,
+				BEE378721DAE10D600CB954B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEE378761DAE10D600CB954B /* PBXTargetDependency */,
+			);
+			name = geometry_rushUITests;
+			productName = geometry_rushUITests;
+			productReference = BEE378741DAE10D600CB954B /* geometry_rushUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEE3784B1DAE10D600CB954B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = ganyi;
+				TargetAttributes = {
+					BEE378521DAE10D600CB954B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = T65EE75V48;
+						ProvisioningStyle = Automatic;
+					};
+					BEE378681DAE10D600CB954B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = T65EE75V48;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BEE378521DAE10D600CB954B;
+					};
+					BEE378731DAE10D600CB954B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = T65EE75V48;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BEE378521DAE10D600CB954B;
+					};
+				};
+			};
+			buildConfigurationList = BEE3784E1DAE10D600CB954B /* Build configuration list for PBXProject "geometry_rush" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEE3784A1DAE10D600CB954B;
+			productRefGroup = BEE378541DAE10D600CB954B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEE378521DAE10D600CB954B /* geometry_rush */,
+				BEE378681DAE10D600CB954B /* geometry_rushTests */,
+				BEE378731DAE10D600CB954B /* geometry_rushUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEE378511DAE10D600CB954B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE378591DAE10D600CB954B /* art.scnassets in Resources */,
+				BEE378631DAE10D600CB954B /* LaunchScreen.storyboard in Resources */,
+				BEE378601DAE10D600CB954B /* Assets.xcassets in Resources */,
+				BEE3785E1DAE10D600CB954B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE378671DAE10D600CB954B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE378721DAE10D600CB954B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEE3784F1DAE10D600CB954B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE378881DAE14FF00CB954B /* GameScene.swift in Sources */,
+				BEE3788E1DAE19BE00CB954B /* MainLight.swift in Sources */,
+				BEE3788A1DAE171C00CB954B /* MainCamera.swift in Sources */,
+				BEE3785B1DAE10D600CB954B /* GameViewController.swift in Sources */,
+				BEE3788C1DAE186800CB954B /* Player.swift in Sources */,
+				BEE378571DAE10D600CB954B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE378651DAE10D600CB954B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE3786E1DAE10D600CB954B /* geometry_rushTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE378701DAE10D600CB954B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE378791DAE10D600CB954B /* geometry_rushUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEE3786B1DAE10D600CB954B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEE378521DAE10D600CB954B /* geometry_rush */;
+			targetProxy = BEE3786A1DAE10D600CB954B /* PBXContainerItemProxy */;
+		};
+		BEE378761DAE10D600CB954B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEE378521DAE10D600CB954B /* geometry_rush */;
+			targetProxy = BEE378751DAE10D600CB954B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEE3785C1DAE10D600CB954B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEE3785D1DAE10D600CB954B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEE378611DAE10D600CB954B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEE378621DAE10D600CB954B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEE3787B1DAE10D600CB954B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEE3787C1DAE10D600CB954B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEE3787E1DAE10D600CB954B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = geometry_rush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.orangebrush.geometry-rush";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BEE3787F1DAE10D600CB954B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = geometry_rush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.orangebrush.geometry-rush";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BEE378811DAE10D600CB954B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = geometry_rushTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.orangebrush.geometry-rushTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/geometry_rush.app/geometry_rush";
+			};
+			name = Debug;
+		};
+		BEE378821DAE10D600CB954B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = geometry_rushTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.orangebrush.geometry-rushTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/geometry_rush.app/geometry_rush";
+			};
+			name = Release;
+		};
+		BEE378841DAE10D600CB954B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = geometry_rushUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.orangebrush.geometry-rushUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = geometry_rush;
+			};
+			name = Debug;
+		};
+		BEE378851DAE10D600CB954B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = T65EE75V48;
+				INFOPLIST_FILE = geometry_rushUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.orangebrush.geometry-rushUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = geometry_rush;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEE3784E1DAE10D600CB954B /* Build configuration list for PBXProject "geometry_rush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE3787B1DAE10D600CB954B /* Debug */,
+				BEE3787C1DAE10D600CB954B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE3787D1DAE10D600CB954B /* Build configuration list for PBXNativeTarget "geometry_rush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE3787E1DAE10D600CB954B /* Debug */,
+				BEE3787F1DAE10D600CB954B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BEE378801DAE10D600CB954B /* Build configuration list for PBXNativeTarget "geometry_rushTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE378811DAE10D600CB954B /* Debug */,
+				BEE378821DAE10D600CB954B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BEE378831DAE10D600CB954B /* Build configuration list for PBXNativeTarget "geometry_rushUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE378841DAE10D600CB954B /* Debug */,
+				BEE378851DAE10D600CB954B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEE3784B1DAE10D600CB954B /* Project object */;
+}
