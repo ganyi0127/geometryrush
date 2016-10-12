@@ -9,6 +9,8 @@
 import SceneKit
 class GameScene: SCNScene {
     
+    fileprivate var player: Player?
+    
     override init() {
         super.init()
         
@@ -26,8 +28,8 @@ class GameScene: SCNScene {
     
     private func createContents(){
                 
-        let player = Player()
-        rootNode.addChildNode(player)
+        player = Player()
+        rootNode.addChildNode(player!)
         
         let mainCamera = MainCamera()
         rootNode.addChildNode(mainCamera)

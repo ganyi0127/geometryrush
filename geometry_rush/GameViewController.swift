@@ -9,23 +9,37 @@
 import UIKit
 import QuartzCore
 import SceneKit
+import SpriteKit
 
 class GameViewController: UIViewController {
 
+    //3d场景层
+    fileprivate var gameScene: GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-//        scnView.addGestureRecognizer(tapGesture)
         
-        let gameScene = GameScene()
+        gameScene = GameScene()
         
         let scnView = view as! SCNView
         scnView.scene = gameScene
         
         scnView.showsStatistics = true
-        scnView.allowsCameraControl = true
+        scnView.allowsCameraControl = false
         scnView.backgroundColor = .lightGray
+        
+        //覆盖层
+        if sceneSize == nil{
+            sceneSize = scnView.bounds.size
+            print(sceneSize)
+        }
+        let menuScene = MenuScene(size: sceneSize!)
+        scnView.overlaySKScene = menuScene
+        
+        //点击事件
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        scnView.addGestureRecognizer(tapGesture)
     }
 
     
