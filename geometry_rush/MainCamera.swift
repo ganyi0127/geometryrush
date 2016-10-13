@@ -29,15 +29,16 @@ class MainCamera: SCNNode {
         
         let node = SCNCamera()
         camera = node
-        camera?.usesOrthographicProjection = false
+        camera?.usesOrthographicProjection = true
         
         if camera!.usesOrthographicProjection{
             //正交
             camera?.orthographicScale = Double(view_size.width) / 2
+
         }else{
             //透视
-            camera?.xFov = -Double(scene_size!.width)
-            camera?.yFov = -Double(scene_size!.height)
+            camera?.xFov = -50
+            camera?.yFov = -50
         }
 
     }
