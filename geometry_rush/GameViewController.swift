@@ -14,26 +14,29 @@ import SpriteKit
 class GameViewController: UIViewController {
 
     //3d场景层
-    fileprivate var gameScene: GameScene?
+    var scnView: SCNView!
+    var gameScene: GameScene!
     
+    //MARK:- init
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scnView = view as! SCNView
-        if sceneSize == nil{
-            sceneSize = scnView.bounds.size
-            print(sceneSize)
+        scnView = view as! SCNView
+        if scene_size == nil{
+            scene_size = scnView.bounds.size
         }
         
         gameScene = GameScene()
         scnView.scene = gameScene
+        
+        scnView.delegate = self     //更新函数代理
         
         scnView.showsStatistics = true
         scnView.allowsCameraControl = false
         scnView.backgroundColor = .lightGray
         
         //覆盖层
-        let menuScene = MenuScene(size: sceneSize!)
+        let menuScene = MenuScene(size: scene_size!)
         scnView.overlaySKScene = menuScene
         
         //点击事件
@@ -91,7 +94,49 @@ class GameViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
+}
+
+//MARK:- render delegate
+extension GameViewController: SCNSceneRendererDelegate{
+    
+    //MARK:- roop
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        
+        guard gameScene.isActive else {
+            return
+        }
+
+        //发射
+        sendEnemy()
+    }
+    
+    //MARK:- 发射
+    private func sendEnemy(){
+        
+        let rand = arc4random_uniform(2)
+        if rand == 0{
+            return
+        }
+        
+        let startPoint = GameScene.getRandomPosition(byBoxRadius: 1)
+        let endPoint = GameScene.getRandomPosition(byBoxRadius: 1)
+        
+        if startPoint.x == endPoint.x || startPoint.y == endPoint.y{
+            return
+        }
+        
+        var enemy: Enemy
+        if garbageEnemyList.isEmpty{
+            enemy = Enemy()
+        }else{
+            enemy = garbageEnemyList.removeFirst()
+        }
+
+        enemy.setMoveAction(fromStartPoint: startPoint, frameEndPoint: endPoint){
+            garbageEnemyList.append(enemy)
+        }
+        gameScene.rootNode.addChildNode(enemy)
+    }
 }

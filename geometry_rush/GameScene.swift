@@ -9,13 +9,31 @@
 import SceneKit
 class GameScene: SCNScene {
     
-    fileprivate var player: Player?
+    //主Ball
+    var player: Player?
     
+    //暂停于运行
+    var isActive = false{
+        didSet{
+            if isActive{
+                reset(moveChilds: true)
+            }else{
+                reset(moveChilds: false)
+            }
+        }
+    }
+    
+    //MARK:- init
     override init() {
         super.init()
         
         config()
         createContents()
+    }
+    
+    deinit {
+        notify.removeObserver(self, name: notify_restart, object: nil)
+        notify.removeObserver(self, name: notify_active, object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,6 +42,10 @@ class GameScene: SCNScene {
     
     private func config(){
         
+        physicsWorld.contactDelegate = self
+        
+        notify.addObserver(self, selector: #selector(resetNotify), name: notify_restart, object: nil)
+        notify.addObserver(self, selector: #selector(start(notification:)), name: notify_active, object: nil)
     }
     
     private func createContents(){
@@ -36,25 +58,123 @@ class GameScene: SCNScene {
         
         let mainLight = MainLight()
         rootNode.addChildNode(mainLight)
+    }
+
+    @objc private func resetNotify(){
+        isActive = true
+    }
+    
+    //MARK:- 重置 : 移除本身 或 移除动作
+    private func reset(moveChilds: Bool){
         
-        let enemy = Enemy()
-        rootNode.addChildNode(enemy)
+        if moveChilds{
+            removeAllEnemys()
+        }else{
+            removeEnemysAction()
+        }
+    }
+    
+    //MARK:- 移除动作
+    private func removeEnemysAction(){
+        rootNode.childNodes.forEach(){
+            childNode in
+            if childNode.isKind(of: Enemy.self){
+                
+                childNode.removeAllActions()
+            }
+        }
+    }
+    
+    //MARK:- 移除所有enemy
+    private func removeAllEnemys(){
         
-        //test
-        let playerLeftUp = Player()
-        playerLeftUp.position = SCNVector3(-160, 284, 0)
-        rootNode.addChildNode(playerLeftUp)
+        rootNode.childNodes.forEach(){
+            childNode in
+            
+            if childNode.isKind(of: Enemy.self){
+                childNode.removeFromParentNode()
+                garbageEnemyList.append(childNode as! Enemy)
+            }
+        }
+    }
+    
+    //MARK:- 开始
+    @objc fileprivate func start(notification: Notification){
         
-        let playerLeftDown = Player()
-        playerLeftDown.position = SCNVector3(-160, -284, 0)
-        rootNode.addChildNode(playerLeftDown)
+        guard let active = notification.object as? Bool else {
+            return
+        }
+        isActive = active
+    }
+    
+    //MARK:- 结束
+    fileprivate func gameover(){
         
-        let playerRightUp = Player()
-        playerRightUp.position = SCNVector3(160, 284, 0)
-        rootNode.addChildNode(playerRightUp)
+        isActive = false
         
-        let playerRightDown = Player()
-        playerRightDown.position = SCNVector3(-160, -284, 0)
-        rootNode.addChildNode(playerRightDown)
+        notify.post(name: notify_active, object: isActive)
+    }
+}
+
+//MARK:- class funcation find point from loop
+extension GameScene{
+    
+    //MAKR:- 随机获取包围点
+    class func getRandomPosition(byBoxRadius radius: CGFloat) -> CGPoint{
+        
+        guard let size = scene_size else {
+            return CGPoint.zero
+        }
+        
+        //随机4面
+        let rand = arc4random_uniform(4)
+        
+        var posX: CGFloat!
+        var posY: CGFloat!
+        
+        if [0, 1].contains(rand){
+            posX = CGFloat(arc4random_uniform(UInt32(size.width + radius))) - radius
+            if rand == 0{
+                //上
+                posY = size.height + radius
+            }else{
+                //下
+                posY = -radius
+            }
+        }else{
+            posY = CGFloat(arc4random_uniform(UInt32(size.height + radius))) - radius
+            if rand == 3{
+                //左
+                posX = -radius
+            }else{
+                //右
+                posX = size.width + radius
+            }
+        }
+        posY = posY - size.height / 2
+        posX = posX - size.width / 2
+        return CGPoint(x: posX, y: posY)
+    }
+}
+
+extension GameScene: SCNPhysicsContactDelegate{
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+
+        var bodyA: SCNPhysicsBody
+        var bodyB: SCNPhysicsBody
+        
+        if contact.nodeA.categoryBitMask > contact.nodeB.categoryBitMask{
+            bodyA = contact.nodeB.physicsBody!
+            bodyB = contact.nodeA.physicsBody!
+        }else{
+            bodyA = contact.nodeA.physicsBody!
+            bodyB = contact.nodeB.physicsBody!
+        }
+        
+        if bodyA.categoryBitMask == PhysicsMask.player && bodyB.categoryBitMask == PhysicsMask.enemy{
+            //game over
+            gameover()
+        }
     }
 }
