@@ -42,6 +42,7 @@ class GameScene: SCNScene {
     
     private func config(){
         
+        physicsWorld.gravity = SCNVector3(0, 0, -9.8)
         physicsWorld.contactDelegate = self
         
         notify.addObserver(self, selector: #selector(resetNotify), name: notify_restart, object: nil)
@@ -49,15 +50,48 @@ class GameScene: SCNScene {
     }
     
     private func createContents(){
-                
+        
+        //add player
         player = Player()
         rootNode.addChildNode(player!)
         
+        //add ground
+        let ground = Ground()
+        rootNode.addChildNode(ground)
+        
         let mainCamera = MainCamera()
+        mainCamera.setLookatTarget(target: player)
         rootNode.addChildNode(mainCamera)
         
         let mainLight = MainLight()
+//        mainLight.setLookatTarget(target: player)
         rootNode.addChildNode(mainLight)
+        
+        let ambientLight = AmbientLight()
+        rootNode.addChildNode(ambientLight)
+        
+        //test
+//        let p0 = Player()
+//        p0.position = SCNVector3(-160, 284, 0)
+//        rootNode.addChildNode(p0)
+//        let p1 = Player()
+//        p1.position = SCNVector3(160, 284, 0)
+//        rootNode.addChildNode(p1)
+//        let p2 = Player()
+//        p2.position = SCNVector3(-160, -284, 0)
+//        rootNode.addChildNode(p2)
+//        let p3 = Player()
+//        p3.position = SCNVector3(160, -284, 0)
+//        rootNode.addChildNode(p3)
+        
+        //test box
+        let testGeometry = SCNBox(width: 10, height: 10, length: 20000, chamferRadius: 3)
+        testGeometry.firstMaterial?.diffuse.contents = UIColor.purple
+        let test = SCNNode(geometry: testGeometry)
+        test.categoryBitMask = 0x1 << 0
+        test.light?.categoryBitMask = 0x1 << 0
+        test.position = SCNVector3(50, 50, 10000)
+        rootNode.addChildNode(test)
     }
 
     @objc private func resetNotify(){

@@ -11,6 +11,16 @@ class Player: SCNNode {
     
     private let radius:CGFloat = 5
     
+    var isVisualCentre = false{
+        didSet{
+            
+            if isVisualCentre != oldValue{
+                
+                setVisualCentre(enable: isVisualCentre)
+            }
+        }
+    }
+    
     override init() {
         super.init()
         
@@ -28,7 +38,7 @@ class Player: SCNNode {
     
     private func config(){
         
-        position = SCNVector3(0, 0, 0)
+        position = SCNVector3(0, 0, player_height)
         
         notify.addObserver(self, selector: #selector(setPosition(notification:)), name: notify_move, object: nil)
     }
@@ -42,10 +52,11 @@ class Player: SCNNode {
         meterial?.ambient.contents = UIColor.green
      
         //添加物理体
-        physicsBody = SCNPhysicsBody(type: .kinematic, shape: nil)
+        physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         physicsBody?.categoryBitMask = PhysicsMask.player
         physicsBody?.contactTestBitMask = PhysicsMask.enemy
-
+        physicsBody?.isAffectedByGravity = false
+        physicsBody?.usesDefaultMomentOfInertia = true
     }
     
     func setPosition(notification: Notification){
@@ -60,7 +71,7 @@ class Player: SCNNode {
 
         let oldPosX = position.x
         let oldPosY = position.y
-        let oldPosZ = position.z
+//        let oldPosZ = position.z
         
         var newPosX = oldPosX + Float(pos.dx)
         if newPosX < Float(-size.width / 2 + radius / 2){
@@ -75,7 +86,16 @@ class Player: SCNNode {
         }else if newPosY > Float(size.height / 2 - radius / 2){
             newPosY = Float(size.height / 2 - radius / 2)
         }
-        position = SCNVector3(newPosX, newPosY, oldPosZ)
+//        position = SCNVector3(newPosX, newPosY, oldPosZ)
+        position.x = newPosX
+        position.y = newPosY
+    }
+    
+    //手动下落
+    func drop(){
+        let newPosZ = position.z - 1
+        position.z = newPosZ
+        
     }
     
     //手动设置
@@ -85,5 +105,14 @@ class Player: SCNNode {
         let oldPosY = position.y
         let oldPosZ = position.z
         position = SCNVector3(oldPosX + Float(vector.dx), oldPosY + Float(vector.dy), oldPosZ)
+    }
+    
+    //设置为主视角
+    private func setVisualCentre(enable: Bool){
+        if enable{
+            camera = SCNCamera()
+        }else{
+            camera = nil
+        }
     }
 }

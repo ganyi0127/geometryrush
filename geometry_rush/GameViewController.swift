@@ -107,7 +107,10 @@ extension GameViewController: SCNSceneRendererDelegate{
         guard gameScene.isActive else {
             return
         }
-
+        
+        //自由下落-1
+        gameScene.player?.drop()
+        
         //发射
         sendEnemy()
     }

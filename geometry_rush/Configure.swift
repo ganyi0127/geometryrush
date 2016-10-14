@@ -27,3 +27,7 @@ struct PhysicsMask{
 
 //保存所有enemy
 var garbageEnemyList = [Enemy]()
+
+//PLAYER
+let player_height:CGFloat = 200
+let camera_height:CGFloat = 200
