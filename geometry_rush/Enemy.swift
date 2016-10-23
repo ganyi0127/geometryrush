@@ -46,7 +46,7 @@ class Enemy: SCNNode {
         removeAllActions()
         
         //设置起始点
-        position = SCNVector3(startPoint.x, startPoint.y, 0)
+        position = SCNVector3(startPoint.x, startPoint.y, enemy_height)
         
         //设置结束点
         addMovingAnimation(targetPoint: endPoint, closure: closure)
@@ -54,7 +54,7 @@ class Enemy: SCNNode {
     
     private func addMovingAnimation(targetPoint point: CGPoint, closure: @escaping ()->()){
         
-        let vector = SCNVector3(point.x, point.y, 0)
+        let vector = SCNVector3(point.x, point.y, enemy_height)
         let duration = Double.random(min: 4, max: 8)
         let mvAct = SCNAction.move(to: vector, duration: duration)
         let rmAct = SCNAction.removeFromParentNode()

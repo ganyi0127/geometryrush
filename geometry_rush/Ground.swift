@@ -44,5 +44,13 @@ class Ground: SCNNode {
         
         material.ambient.contents = UIColor.black
         floor.materials = [material]
+        
+        //添加物理体
+        physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: floor, options: nil))
+        physicsBody?.categoryBitMask = PhysicsMask.ground
+        physicsBody?.contactTestBitMask = PhysicsMask.player
+        physicsBody?.collisionBitMask = PhysicsMask.player
+        physicsBody?.isAffectedByGravity = false 
+        physicsBody?.usesDefaultMomentOfInertia = true
     }
 }

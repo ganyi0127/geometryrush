@@ -42,7 +42,7 @@ class GameScene: SCNScene {
     
     private func config(){
         
-        physicsWorld.gravity = SCNVector3(0, 0, -9.8)
+        physicsWorld.gravity = SCNVector3(0, 0, -900.8)
         physicsWorld.contactDelegate = self
         
         notify.addObserver(self, selector: #selector(resetNotify), name: notify_restart, object: nil)
@@ -59,9 +59,9 @@ class GameScene: SCNScene {
         let ground = Ground()
         rootNode.addChildNode(ground)
         
-        let mainCamera = MainCamera()
-        mainCamera.setLookatTarget(target: player)
-        rootNode.addChildNode(mainCamera)
+//        let mainCamera = MainCamera()
+//        mainCamera.setLookatTarget(target: player)
+//        rootNode.addChildNode(mainCamera)
         
         let mainLight = MainLight()
 //        mainLight.setLookatTarget(target: player)
@@ -84,7 +84,7 @@ class GameScene: SCNScene {
 //        p3.position = SCNVector3(160, -284, 0)
 //        rootNode.addChildNode(p3)
         
-        //test box
+        //test box 柱子
         let testGeometry = SCNBox(width: 10, height: 10, length: 20000, chamferRadius: 3)
         testGeometry.firstMaterial?.diffuse.contents = UIColor.purple
         let test = SCNNode(geometry: testGeometry)
@@ -92,6 +92,14 @@ class GameScene: SCNScene {
         test.light?.categoryBitMask = 0x1 << 0
         test.position = SCNVector3(50, 50, 10000)
         rootNode.addChildNode(test)
+        
+        //添加物理体
+        test.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: testGeometry, options: nil))
+        test.physicsBody?.categoryBitMask = PhysicsMask.ground
+        test.physicsBody?.contactTestBitMask = PhysicsMask.player
+        test.physicsBody?.collisionBitMask = PhysicsMask.player
+        test.physicsBody?.isAffectedByGravity = false
+        test.physicsBody?.usesDefaultMomentOfInertia = true
     }
 
     @objc private func resetNotify(){
@@ -146,7 +154,9 @@ class GameScene: SCNScene {
         
         isActive = false
         
-        notify.post(name: notify_active, object: isActive)
+        player?.position.z = Float(enemy_height)
+        
+        notify.post(name: notify_active, object: isActive)  //发送结束消息
     }
 }
 
@@ -208,7 +218,15 @@ extension GameScene: SCNPhysicsContactDelegate{
         
         if bodyA.categoryBitMask == PhysicsMask.player && bodyB.categoryBitMask == PhysicsMask.enemy{
             //game over
-            gameover()
+            if isActive {
+                gameover()
+            }
+        }else if bodyA.categoryBitMask == PhysicsMask.player && bodyB.categoryBitMask == PhysicsMask.ground{
+            if isActive{
+                //着地
+                print("loading ground")
+                gameover()
+            }
         }
     }
 }

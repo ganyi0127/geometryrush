@@ -23,11 +23,15 @@ let notify_active = Notification.Name("active")
 struct PhysicsMask{
     static let player:Int = 0x1 << 0
     static let enemy:Int = 0x1 << 1
+    static let ground:Int = 0x1 << 2
 }
 
 //保存所有enemy
 var garbageEnemyList = [Enemy]()
 
 //PLAYER
-let player_height:CGFloat = 200
-let camera_height:CGFloat = 200
+let player_dropspeed_slow: Float = 1
+let player_dropspeed_fast: Float = 2
+let enemy_height:CGFloat = 5
+let camera_height:CGFloat = 20000
+let player_height:CGFloat = camera_height
